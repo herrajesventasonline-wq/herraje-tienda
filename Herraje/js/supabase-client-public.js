@@ -201,4 +201,5 @@ if (document.readyState === 'loading') {
     initializeSupabasePublic();
 }
 
+
 console.log('✅ supabase-client-public.js cargado - inicialización en progreso...');

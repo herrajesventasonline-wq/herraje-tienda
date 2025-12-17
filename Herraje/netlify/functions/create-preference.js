@@ -27,11 +27,11 @@ exports.handler = async (event) => {
     // 5. Configura la preferencia de pago
     const preference = {
       items: items,
-      back_urls: {
-        success: 'https://tu-dominio.netlify.app/pago-exitoso.html',
-        failure: 'https://tu-dominio.netlify.app/pago-fallido.html',
-        pending: 'https://tu-dominio.netlify.app/pago-pendiente.html',
-      },
+ back_urls: {
+    success: 'https://herraje-tiendaonline.netlify.app/pago-exitoso.html',
+    failure: 'https://herraje-tiendaonline.netlify.app/pago-fallido.html',
+    pending: 'https://herraje-tiendaonline.netlify.app/pago-pendiente.html',
+},
       auto_return: 'approved', // Vuelve automáticamente al sitio tras pago aprobado[citation:6]
       // external_reference: "ID_DE_TU_PEDIDO", // Opcional: para vincular con tu DB
     };
@@ -52,4 +52,5 @@ exports.handler = async (event) => {
       body: JSON.stringify({ error: 'Error al crear la preferencia de pago' }),
     };
   }
+
 };

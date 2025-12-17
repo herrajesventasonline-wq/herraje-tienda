@@ -1,15 +1,15 @@
 {
-  "name": "herraje",
+  "name": "herraje-tienda",
   "version": "1.0.0",
+  "description": "Tienda de herrajes con Mercado Pago",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "echo 'Build completado'"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
     "mercadopago": "^2.11.0"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }

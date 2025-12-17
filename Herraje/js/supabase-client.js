@@ -454,4 +454,5 @@ if (document.readyState === 'loading') {
     initializeSupabase();
 }
 
+
 console.log('✅ supabase-client.js cargado correctamente');

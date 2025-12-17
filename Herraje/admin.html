@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Herrajería</title>
+    
+    <meta name="description" content="Panel de administración para gestión de productos de herrajería">
+    <meta name="author" content="Herrajería">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+</head>
+
+<body>
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-tools"></i>
+                    <h1>Panel de Administración - Herrajería</h1>
+                </div>
+                <div class="admin-actions">
+                    <span id="admin-user" class="admin-user-info">
+                        <i class="fas fa-user-circle"></i>
+                        <span>Administrador</span>
+                    </span>
+                    <button class="btn btn-logout" id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Panel -->
+    <section class="admin-panel">
+        <div class="container">
+            <!-- Tabs de Navegación -->
+            <div class="admin-tabs">
+                <button class="admin-tab active" data-tab="dashboard">
+                    <i class="fas fa-tachometer-alt"></i> Resumen
+                </button>
+                <button class="admin-tab" data-tab="products">
+                    <i class="fas fa-boxes"></i> Gestión de Productos
+                </button>
+ 
+                <button class="admin-tab" data-tab="analytics">
+                    <i class="fas fa-chart-line"></i> Ventas
+                </button>
+            </div>
+
+            <!-- Sección: Dashboard -->
+            <div class="admin-section active" id="dashboard-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-value" id="total-products">0</div>
+                        <div class="stat-label">Productos Totales</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <div class="stat-value" id="in-stock-products">0</div>
+                        <div class="stat-label">Productos con Stock</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-value" id="total-sales">0</div>
+                        <div class="stat-label">Stock Bajo</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-value" id="total-orders">0</div>
+                        <div class="stat-label">Pedidos Totales</div>
+                    </div>
+                </div>
+
+            
+            </div>
+
+            <!-- Sección: Gestión de Productos -->
+            <div class="admin-section" id="products-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-boxes"></i> Gestión de Productos</h3>
+                    <div class="header-actions">
+                        <button id="add-product-btn" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Nuevo Producto
+                        </button>
+                        <button id="price-adjustment-btn-2" class="btn btn-warning">
+                            <i class="fas fa-percentage"></i> Ajustar Precios
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Sistema de búsqueda -->
+                <div class="search-container">
+                    <div class="search-header">
+                        <h4 class="search-title">
+                            <i class="fas fa-search"></i> Buscar Productos
+                        </h4>
+                        <div class="search-controls">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="product-search" placeholder="Buscar por nombre, SKU, marca, categoría..." aria-label="Buscar productos">
+                               
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- Lista de productos -->
+                <div class="products-list" id="admin-products-list">
+                    <!-- Los productos se cargarán aquí dinámicamente -->
+                </div>
+            </div>
+
+
+            <!-- Sección: Ventas -->
+            <div class="admin-section" id="analytics-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-chart-line"></i> Ventas y Pedidos</h3>
+                    <div class="header-actions">
+                        <button class="btn btn-primary" onclick="loadAdminData()">
+                            <i class="fas fa-sync-alt"></i> Actualizar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Estadísticas de ventas -->
+                <div class="orders-stats">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                            <div class="stat-value" id="total-orders-display">0</div>
+                            <div class="stat-label">Total Pedidos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="stat-value" id="total-revenue">$0</div>
+                            <div class="stat-label">Ingresos Totales</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filtro de fechas -->
+                <div class="date-filter">
+                    <div class="date-filter-content">
+                        <div class="filter-select">
+                            <label for="date-filter">
+                                <i class="fas fa-calendar-alt"></i> Filtrar por:
+                            </label>
+                            <select id="date-filter">
+                                <option value="all">Todo el historial</option>
+                                <option value="today">Hoy</option>
+                                <option value="yesterday">Ayer</option>
+                                <option value="week">Esta semana</option>
+                                <option value="month">Este mes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista de pedidos -->
+                <h3>Pedidos Realizados</h3>
+                <div class="orders-list" id="orders-list">
+                    <!-- Los pedidos se cargarán aquí dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para Productos -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="product-modal-title">
+                    <i class="fas fa-box"></i> <span>Nuevo Producto</span>
+                </h3>
+                <button class="close-modal" aria-label="Cerrar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="product-form">
+                    <input type="hidden" id="product-id">
+
+                    <div class="form-group">
+                        <label for="product-name">
+                            <i class="fas fa-tag"></i> Nombre del Producto *
+                        </label>
+                        <input type="text" id="product-name" required placeholder="Ingrese el nombre del producto">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-category">
+                                <i class="fas fa-folder"></i> Categoría *
+                            </label>
+                            <select id="product-category" required>
+                                <option value="">Seleccionar categoría</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-brand">
+                                <i class="fas fa-trademark"></i> Marca *
+                            </label>
+                            <select id="product-brand" required>
+                                <option value="">Seleccionar marca</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-sku">
+                            <i class="fas fa-barcode"></i> SKU
+                        </label>
+                        <input type="text" id="product-sku" placeholder="Se generará automáticamente si se deja vacío">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-cost-price">
+                                <i class="fas fa-dollar-sign"></i> Precio de Costo ($)
+                            </label>
+                            <input type="number" id="product-cost-price" step="0.01" min="0" value="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-wholesale-price">
+                                <i class="fas fa-industry"></i> Precio Mayorista ($) *
+                            </label>
+                            <input type="number" id="product-wholesale-price" step="0.01" min="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-retail-price">
+                                <i class="fas fa-store"></i> Precio Minorista ($) *
+                            </label>
+                            <input type="number" id="product-retail-price" step="0.01" min="0" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product-stock">
+                                <i class="fas fa-boxes"></i> Stock
+                            </label>
+                            <input type="number" id="product-stock" min="0" value="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-min-stock">
+                                <i class="fas fa-exclamation-triangle"></i> Stock Mínimo
+                            </label>
+                            <input type="number" id="product-min-stock" min="0" value="0">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-colors">
+                            <i class="fas fa-palette"></i> Colores (separados por coma)
+                        </label>
+                        <input type="text" id="product-colors" placeholder="Ej: Negro, Blanco, Plateado">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-description">
+                            <i class="fas fa-align-left"></i> Descripción *
+                        </label>
+                        <textarea id="product-description" rows="4" required placeholder="Describa el producto detalladamente"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-specifications">
+                            <i class="fas fa-list-alt"></i> Especificaciones Técnicas
+                        </label>
+                        <textarea id="product-specifications" rows="3" placeholder="Ej:&#10;Material: Acero inoxidable&#10;Medidas: 10x15cm&#10;Peso: 500g"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-technical-details">
+                            <i class="fas fa-cogs"></i> Detalles Técnicos
+                        </label>
+                        <textarea id="product-technical-details" rows="3" placeholder="Información técnica adicional"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-images"></i> Imágenes del Producto
+                        </label>
+                        <div class="images-upload-container">
+                            <div class="upload-area" id="upload-area">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Arrastra imágenes aquí o haz clic para seleccionar</p>
+                                <small class="upload-hint">Máximo 5MB por imagen. Formatos: JPG, PNG, WEBP, GIF</small>
+                                <input type="file" id="image-upload" multiple accept="image/*" style="display: none;">
+                            </div>
+                            <div class="images-preview" id="images-preview">
+                                <!-- Las imágenes previsualizadas aparecerán aquí -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-cancel" id="cancel-product">
+                            <i class="fas fa-times"></i> Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-primary" id="save-product">
+                            <i class="fas fa-save"></i> Guardar Producto
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Ajuste de Precios -->
+    <div class="modal" id="price-adjustment-modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3><i class="fas fa-percentage"></i> Ajuste Masivo de Precios</h3>
+                <button class="close-modal" aria-label="Cerrar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="price-adjustment-form">
+                    <div class="form-group">
+                        <label for="adjustment-type">
+                            <i class="fas fa-cog"></i> Tipo de Ajuste *
+                        </label>
+                        <select id="adjustment-type" required>
+                            <option value="">Seleccionar tipo</option>
+                            <option value="percentage">Porcentaje (%)</option>
+                            <option value="fixed">Monto Fijo ($)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adjustment-value">
+                            <i class="fas fa-calculator"></i> Valor del Ajuste *
+                        </label>
+                        <input type="number" id="adjustment-value" step="0.01" required placeholder="Ej: 10 para 10% o $10">
+                        <small class="form-hint" id="adjustment-hint">
+                            Ingrese el porcentaje o monto del ajuste
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adjustment-operation">
+                            <i class="fas fa-arrows-alt-v"></i> Operación *
+                        </label>
+                        <select id="adjustment-operation" required>
+                            <option value="increase">Aumentar</option>
+                            <option value="decrease">Disminuir</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apply-to">
+                            <i class="fas fa-crosshairs"></i> Aplicar a *
+                        </label>
+                        <select id="apply-to" required>
+                            <option value="all">Todos los productos</option>
+                            <option value="category">Por categoría</option>
+                            <option value="brand">Por marca</option>
+                            <option value="selected">Productos seleccionados</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group conditional-field" id="category-field" style="display: none;">
+                        <label for="adjustment-category">
+                            <i class="fas fa-folder"></i> Categoría *
+                        </label>
+                        <select id="adjustment-category">
+                            <option value="">Seleccionar categoría</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group conditional-field" id="brand-field" style="display: none;">
+                        <label for="adjustment-brand">
+                            <i class="fas fa-trademark"></i> Marca *
+                        </label>
+                        <select id="adjustment-brand">
+                            <option value="">Seleccionar marca</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-money-bill-wave"></i> Ajustar *
+                        </label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="adjust-wholesale" value="wholesale" checked>
+                                <span class="checkmark"></span>
+                                Precio Mayorista
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="adjust-retail" value="retail" checked>
+                                <span class="checkmark"></span>
+                                Precio Minorista
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="preview-section" id="preview-section" style="display: none;">
+                        <h4><i class="fas fa-eye"></i> Vista Previa del Ajuste</h4>
+                        <div class="preview-info">
+                            <div id="preview-details"></div>
+                            <div class="preview-stats">
+                                <strong>Productos afectados: <span id="affected-products">0</span></strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-cancel" id="cancel-adjustment">
+                            <i class="fas fa-times"></i> Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-warning" id="apply-adjustment">
+                            <i class="fas fa-percentage"></i> Aplicar Ajuste
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Factura -->
+    <div class="modal" id="invoice-modal">
+        <div class="modal-content" style="max-width: 700px;">
+            <div class="modal-header">
+                <h3>
+                    <i class="fas fa-file-invoice"></i> 
+                    Comprobante <span id="invoice-number"></span>
+                </h3>
+                <button class="close-modal" aria-label="Cerrar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="invoice-info">
+                    <div class="invoice-section">
+                        <h4><i class="fas fa-info-circle"></i> Información del Pedido</h4>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <strong>Número de Factura:</strong> 
+                                <span id="invoice-id"></span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Fecha:</strong> 
+                                <span id="invoice-date"></span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Hora:</strong> 
+                                <span id="invoice-time"></span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Estado:</strong> 
+                                <span id="invoice-status"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="invoice-section">
+                        <h4><i class="fas fa-user"></i> Datos del Cliente</h4>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <strong>Nombre:</strong> 
+                                <span id="customer-name"></span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Teléfono:</strong> 
+                                <span id="customer-phone"></span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Email:</strong> 
+                                <span id="customer-email"></span>
+                            </div>
+                            <div class="info-item">
+                                <strong>Método de Pago:</strong> 
+                                <span id="payment-method"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="invoice-section">
+                    <h4><i class="fas fa-list"></i> Detalles del Pedido</h4>
+                    <div class="table-responsive">
+                        <table class="invoice-table">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio Unit.</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="invoice-items"></tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" style="text-align: right;">
+                                        <strong>Total:</strong>
+                                    </td>
+                                    <td>
+                                        <strong>$<span id="invoice-total">0.00</span></strong>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="close-invoice">
+                    <i class="fas fa-times"></i> Cerrar
+                </button>
+                <button class="btn btn-primary" id="print-invoice">
+                    <i class="fas fa-print"></i> Imprimir
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay para modales -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/admin-init.js"></script>
+</body>
+</html>

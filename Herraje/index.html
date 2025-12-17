@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre-sitio - Materiales Industriales Premium</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <a href="#"><i class="fas fa-phone-alt me-1"></i>+54 358 1234-5678</a>
+                    <a href="#"><i class="fas fa-envelope me-1"></i> ventas@nombre-sitio.com</a>
+                </div>
+                <div>
+                    <a href="#"><i class="fas fa-truck"></i> Para envios Debe Superar $48.000</a>
+                    <a href="#">Ayuda</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Header -->
+    <header class="header-main">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <a href="#" class="logo">
+                        <i class="fas fa-industry logo-icon"></i>Nombre<span>sitio</span>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <div class="search-box">
+                        <input type="text" class="form-control" id="searchInput" placeholder="Buscar productos...">
+                        <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="user-actions d-flex justify-content-end">
+                        <a href="#" id="accountLink" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="fas fa-user me-1"></i>Mi Cuenta
+                        </a>
+                        <a href="#" class="cart-icon" id="cartLink" data-bs-toggle="offcanvas"
+                            data-bs-target="#cartOffcanvas">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge">0</span>
+                        </a>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#inicio">Inicio</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button"
+                        data-bs-toggle="dropdown">
+                        Productos
+                    </a>
+                    <!-- En la navigation, modifica el dropdown menu -->
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Linea Mueble')"><i
+                                    class="fas fa-door-closed"></i>Linea Mueble</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Linea Aluminio')"><i
+                                    class="fas fa-shield-alt"></i>Linea Aluminio</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Linea Baño')"><i
+                                    class="fas fa-chair"></i> Linea Baño</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Linea Puerta')"><i
+                                    class="fas fa-door-closed"></i> Linea Puerta</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Linea Vidrio')"><i
+                                    class="fas fa-box-open"></i> Linea Vidrio</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Linea Portones')"><i
+                                    class="fa fa-door-closed"></i> Linea portones</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Herramientas')"><i
+                                    class="fas fa-tools"></i> Herramientas</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Linea Cocina & Lavadero')"><i
+                                    class="fas fa-store"></i> Linea Cocina & Lavadero</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">Sobre Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contacto</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- Hero Section con Carrusel -->
+    <!-- Hero Section con Carrusel -->
+    <section class="hero">
+        <div class="carousel">
+            <div class="carousel-inner">
+
+                <div class="carousel-slide" class="card-img-top" alt="Línea Aluminio"
+                    onclick="filterByCategory('Linea Mueble')">
+                    <div class="slide-image-wrapper">
+                        <img src="assets/img/linea_muebles_4.png" alt="Muebles de alta calidad" class="card-img-top"
+                            alt="Línea Aluminio" onclick="filterByCategory('Linea Mueble')">
+                    </div>
+                    <section class="hero-section_2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="hero-content">
+                                    <h1>Muebles de alta calidad</h1>
+                                    <p>Materiales y equipamiento para la industria moderna. Calidad certificada y
+                                        entrega
+                                        garantizada.</p>
+                                    <a href="#section-title" class="btn btn-primary me-2"
+                                        onclick="filterByCategory('Linea Mueble')" id="show-all-btn"><i
+                                            class="fas fa-eye"> </i> Ver Catálogo</a></li></a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="carousel-slide" class="card-img-top" alt="Línea Aluminio"
+                    onclick="filterByCategory('Herramientas')">
+
+                    <div class="slide-image-wrapper">
+                        <img src="assets/img/linea_herramientas.png" alt="Herramientas profesionales"
+                            class="card-img-top" alt="Línea Aluminio" onclick="filterByCategory('Herramientas')">
+
+                    </div>
+                    <section class="hero-section_2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="hero-content">
+                                    <h1>Herramientas profesionales</h1>
+                                    <p>Materiales y equipamiento para la industria moderna. Calidad certificada y
+                                        entrega
+                                        garantizada.</p>
+                                    <a href="#section-title" class="btn btn-primary me-2"
+                                        onclick="filterByCategory('Herramientas')" id="show-all-btn"><i
+                                            class="fas fa-eye"> </i> Ver Catálogo</a></li></a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <div class="carousel-slide" class="card-img-top" alt="Línea Aluminio"
+                    onclick="filterByCategory('Linea Puerta')">
+                    <div class="slide-image-wrapper">
+                        <img src="assets/img/linea_puerta_6.png" alt="Puertas seguras y duraderas" class="card-img-top"
+                            alt="Línea Aluminio" onclick="filterByCategory('Linea Puerta')">
+                    </div>
+                    <section class="hero-section_2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="hero-content">
+                                    <h1>Puertas seguras y duraderas</h1>
+                                    <p>Materiales y equipamiento para la industria moderna. Calidad certificada y
+                                        entrega
+                                        garantizada.</p>
+                                    <a href="#section-title" class="btn btn-primary me-2"
+                                        onclick="filterByCategory('Linea Puerta')" id="show-all-btn"><i
+                                            class="fas fa-eye"> </i> Ver Catálogo</a></li></a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="carousel-slide" class="card-img-top" alt="Línea Aluminio"
+                    onclick="filterByCategory('Linea Portones')">
+                    <div class="slide-image-wrapper">
+                        <img src="assets/img/linea_portones_5.png" alt="Portones resistentes" class="card-img-top"
+                            alt="Línea Aluminio" onclick="filterByCategory('Linea Portones')">
+                    </div>
+                    <section class="hero-section_2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="hero-content">
+                                    <h1>Portones resistentes</h1>
+                                    <p>Materiales y equipamiento para la industria moderna. Calidad certificada y
+                                        entrega
+                                        garantizada.</p>
+                                    <a href="#section-title" class="btn btn-primary me-2"
+                                        onclick="filterByCategory('Linea Portones')" id="show-all-btn"><i
+                                            class="fas fa-eye"> </i> Ver Catálogo</a></li></a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="carousel-slide" class="card-img-top" alt="Línea Aluminio"
+                    onclick="filterByCategory('Linea Aluminio')">
+                    <div class="slide-image-wrapper">
+                        <img src="assets/img/linea_vidrio_8.png" alt="Vidrios de alta resistencia" class="card-img-top"
+                            alt="Línea Aluminio" onclick="filterByCategory('Linea Aluminio')">
+                    </div>
+                    <section class="hero-section_2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="hero-content">
+                                    <h1>Linea Vidrios</h1>
+                                    <p>Materiales y equipamiento para la industria moderna. Calidad certificada y
+                                        entrega
+                                        garantizada.</p>
+                                    <a href="#section-title" class="btn btn-primary me-2"
+                                        onclick="filterByCategory('Linea Vidrio')" id="show-all-btn"><i
+                                            class="fas fa-eye"> </i> Ver Catálogo</a></li></a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="carousel-slide" class="card-img-top" alt="Línea Aluminio"
+                    onclick="filterByCategory('Linea Cocina & Lavadero')">
+                    <div class="slide-image-wrapper">
+                        <img src="assets/img/linea_cocina&lavadero_3.png" alt="Cocinas y lavaderos funcionales"
+                            class="card-img-top" alt="Línea Aluminio"
+                            onclick="filterByCategory('Linea Cocina & Lavadero')">
+                    </div>
+                    <section class="hero-section_2">
+                        <div class="container">
+                            <div class="row">
+                                <div class="hero-content">
+                                    <h1>Linea Cocinas y lavaderos funcionales</h1>
+                                    <p>Materiales y equipamiento para la industria moderna. Calidad certificada y
+                                        entrega
+                                        garantizada.</p>
+                                    <a href="#section-title" class="btn btn-primary me-2"
+                                        onclick="filterByCategory('Linea Cocina & Lavadero')" id="show-all-btn"><i
+                                            class="fas fa-eye"> </i> Ver Catálogo</a></li></a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="carousel-indicators">
+                <div class="carousel-indicator active" data-slide="0"></div>
+                <div class="carousel-indicator" data-slide="1"></div>
+                <div class="carousel-indicator" data-slide="2"></div>
+                <div class="carousel-indicator" data-slide="3"></div>
+                <div class="carousel-indicator" data-slide="4"></div>
+                <div class="carousel-indicator" data-slide="5"></div>
+            </div>
+            <div class="carousel-controls">
+                <div class="carousel-control prev">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="carousel-control next">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="container my-5 py-5">
+        <h2 class="section-title">Líneas de Producto</h2>
+        <div class="row">
+            <!-- En la sección de Categories Section, modifica cada card -->
+            <div class="col-md-4">
+                <div class="card category-card">
+                    <img src="/assets/img/linea_aluminio_1.png" class="card-img-top" alt="Línea Aluminio"
+                        onclick="filterByCategory('Linea Aluminio')">
+                    <div class="card-body">
+                        <h5>Línea Aluminio</h5>
+                        <p class="card-text">Perfiles, vigas, barras y planchuelas</p>
+                        <button class="btn btn-outline-primary btn-sm" onclick="filterByCategory('Linea Aluminio')">
+                            Explorar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card category-card">
+                    <img src="/assets/img/linea_baño_2.png" class="card-img-top" alt="Línea Baño"
+                        onclick="filterByCategory('Linea Baño')">
+                    <div class="card-body">
+                        <h5>Línea Baño</h5>
+                        <p class="card-text">Equipos profesionales y de precisión</p>
+                        <button class="btn btn-outline-primary btn-sm" onclick="filterByCategory('Linea Baño')">
+                            Explorar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card category-card">
+                    <img src="/assets/img/linea_cocina&lavadero_3.png" class="card-img-top"
+                        alt="Linea Cocina & Lavadero" onclick="filterByCategory('Linea Cocina & Lavadero')">
+                    <div class="card-body">
+                        <h5>Linea Cocina & Lavadero</h5>
+                        <p class="card-text">Equipos, consumibles y seguridad</p>
+                        <button class="btn btn-outline-primary btn-sm"
+                            onclick="filterByCategory('Linea Cocina & Lavadero')">
+                            Explorar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card category-card">
+                    <img src="/assets/img/linea_muebles_4.png" class="card-img-top" alt="Línea Muebles"
+                        onclick="filterByCategory('Linea Mueble')">
+                    <div class="card-body">
+                        <h5>Línea Muebles</h5>
+                        <p class="card-text">Equipos, consumibles y seguridad</p>
+                        <button class="btn btn-outline-primary btn-sm" onclick="filterByCategory('Linea Mueble')">
+                            Explorar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card category-card">
+                    <img src="/assets/img/linea_portones_5.png" class="card-img-top" alt="Línea Portones"
+                        onclick="filterByCategory('Linea Portones')">
+                    <div class="card-body">
+                        <h5>Línea Portones</h5>
+                        <p class="card-text">Equipos, consumibles y seguridad</p>
+                        <button class="btn btn-outline-primary btn-sm" onclick="filterByCategory('Linea Portones')">
+                            Explorar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card category-card">
+                    <img src="/assets/img/linea_puerta_6.png" class="card-img-top" alt="Línea Puertas"
+                        onclick="filterByCategory('Linea Puerta')">
+                    <div class="card-body">
+                        <h5>Línea Puertas</h5>
+                        <p class="card-text">Equipos, consumibles y seguridad</p>
+                        <button class="btn btn-outline-primary btn-sm" onclick="filterByCategory('Linea Puerta')">
+                            Explorar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card category-card">
+                    <img src="/assets/img/linea_herramientas.png" class="card-img-top" alt="Herramientas"
+                        onclick="filterByCategory('Herramientas')">
+                    <div class="card-body">
+                        <h5>Herramientas</h5>
+                        <p class="card-text">Equipos, consumibles y seguridad</p>
+                        <button class="btn btn-outline-primary btn-sm" onclick="filterByCategory('Herramientas')">
+                            Explorar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card category-card">
+                    <img src="/assets/img/linea_vidrio_8.png" class="card-img-top" alt="Línea Vidrio"
+                        onclick="filterByCategory('Linea Vidrio')">
+                    <div class="card-body">
+                        <h5>Línea Vidrio</h5>
+                        <p class="card-text">Equipos, consumibles y seguridad</p>
+                        <button class="btn btn-outline-primary btn-sm" onclick="filterByCategory('Linea Vidrio')">
+                            Explorar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="card category-card">
+                    <img src="/assets/img/todo_los_productos.webp" class="card-img-top" alt="Todos los Productos"
+                        onclick="filterByCategory('Todos los Productos')" id="show-all-btn">
+                    <div class="card-body">
+                        <h5>Todos los Productos</h5>
+                        <p class="card-text">Equipos, consumibles y seguridad</p>
+                        <button class="btn btn-outline-primary btn-sm" onclick="filterByCategory('Todos los Productos')"
+                            id="show-all-btn">
+                            Explorar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+    </section>
+
+
+    <section class="container my-5 py-5" id="products-section" style="display: none;">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="section-title mb-0" id="products-section-title">Productos</h2>
+
+        </div>
+        <div class="row" id="products-container">
+            <!-- Los productos se cargarán dinámicamente desde Supabase -->
+        </div>
+
+        <!-- Contenedor de paginación -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <nav aria-label="Paginación de productos">
+                    <ul class="pagination justify-content-center" id="products-pagination">
+                        <!-- La paginación se generará dinámicamente -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+
+        <!-- ELIMINA ESTA SECCIÓN COMPLETA -->
+        <!--
+<section class="container my-5 py-5" id="most-clicked-section" style="display: none;">
+    <h2 class="section-title">Productos Más Clickeados</h2>
+    <div class="row" id="most-clicked-container">
+        
+    </div>
+</section>
+-->
+        <!-- Best Selling Products Section -->
+        <section class="container my-5 py-5" id="best-selling-section" style="display: none;">
+            <h2 class="section-title">Productos Más Vendidos</h2>
+            <div class="row" id="best-selling-container">
+                <!-- Los productos más vendidos se cargarán dinámicamente -->
+
+
+            </div>
+        </section>
+    </section>
+
+
+
+
+
+
+
+
+
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Servicios Industriales</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4 class="service-title">Ingeniería y Asesoría</h4>
+                        <p class="service-description">Soluciones técnicas personalizadas para proyectos industriales
+                            complejos.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h4 class="service-title">Procesamiento de Materiales</h4>
+                        <p class="service-description">Calidad, duracion y mecanizado según especificaciones técnicas.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h4 class="service-title">Logística Industrial</h4>
+                        <p class="service-description">Entrega programada y gestión de inventarios para producción
+                            continua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                        alt="Sobre Nosotros">
+                </div>
+                <div class="about-text">
+                    <h2>Sobre nombre-sitio</h2>
+                    <p>Con más de 20 años de experiencia en el rubro, nos especializamos en la fabricación y venta de
+                        productos de herrería de la más alta calidad.</p>
+                    <p>Nuestro equipo de herrajes profesionales combina técnicas tradicionales con tecnología moderna
+                        para ofrecer productos duraderos, seguros y estéticamente atractivos.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Calidad Garantizada</h4>
+                                <p>Materiales de primera y acabados perfectos</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Envío a Domicilio</h4>
+                                <p>Entregamos en todo el país</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Servicio Personalizado</h4>
+                                <p>Diseños a medida según tus necesidades</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Garantía Extendida</h4>
+                                <p>Hasta 5 años en nuestros productos</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Nombre-sitio</h5>
+                    <p>Proveedor líder de soluciones industriales con más de 25 años en el mercado. Calidad, innovación
+                        y servicio.</p>
+                    <div class="social-icons mt-4">
+                        <a href="https://wa.me/5435812345678"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Enlaces</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Ayuda</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" class="nav-item dropdown">
+                    <h5>Categorías</h5>
+                    <ul class="footer-links">
+
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Linea Mueble')"><i
+                                    class="fas fa-door-closed"></i>Linea Mueble</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Linea Aluminio')"><i
+                                    class="fas fa-shield-alt"></i>Linea Aluminio</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Linea Baño')"><i
+                                    class="fas fa-chair"></i> Linea Baño</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Linea Puerta')"><i
+                                    class="fas fa-door-closed"></i> Linea Puerta</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Linea Vidrio')"><i
+                                    class="fas fa-box-open"></i> Linea Vidrio</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Linea Portones')"><i
+                                    class="fa fa-door-closed"></i> Linea portones</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="filterByCategory('Herramientas')"><i
+                                    class="fas fa-tools"></i> Herramientas</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Contacto</h5>
+                    <ul class="footer-links contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i><a href="https://goo.gl/maps/example" target="_blank"
+                                rel="noopener noreferrer"> Av. Industrial 2450, Parque Industrial</a></li>
+                        <li><i class="fas fa-phone"></i><a href="tel:+5435812345678"> +54 358 1234-5678</a></li>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:ventas@nombre-sitio.com">
+                                ventas@nombre-sitio.com</a></li>
+                        <li><i class="fas fa-clock"></i> Lunes a Viernes: 7:00 - 19:00</li>
+                        <li><i class="fas fa-truck"></i> Para Envio debe Superar $48.000</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Nombre-sitio Industrial Solutions. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Detail Modal -->
+    <!-- Product Detail Modal -->
+    <!-- Product Detail Modal -->
+    <div class="modal fade product-detail-modal" id="productDetailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detalle del Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="product-gallery">
+                                <!-- Contenedor para zoom (desktop) y slider táctil (móvil) -->
+                                <div class="image-display-container">
+                                    <!-- Versión desktop con zoom -->
+                                    <div class="image-zoom-container hidden-mobile" id="imageZoomContainer">
+                                        <img src="" class="main-image" id="detailMainImage" alt="Producto">
+                                        <div class="zoom-lens" id="zoomLens"></div>
+                                        <div class="image-nav-controls">
+                                            <button class="nav-btn prev-btn" onclick="changeProductImage(-1)">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <button class="nav-btn next-btn" onclick="changeProductImage(1)">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                        <div class="image-counter" id="imageCounter">
+                                            <span id="currentImageIndex">1</span> / <span id="totalImages">1</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Versión móvil con slider táctil -->
+                                    <div class="touch-slider hidden-desktop" id="touchSlider">
+                                        <div class="touch-slider-track" id="touchSliderTrack">
+                                            <!-- Las imágenes se insertarán aquí dinámicamente -->
+                                        </div>
+                                        <div class="slider-nav-controls">
+                                            <button class="nav-btn prev-btn" onclick="changeProductImage(-1)">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <button class="nav-btn next-btn" onclick="changeProductImage(1)">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                        <div class="slider-counter" id="sliderCounter">
+                                            <span id="sliderCurrentIndex">1</span> / <span
+                                                id="sliderTotalImages">1</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Ventana de zoom (solo desktop) -->
+                                <div class="zoom-window" id="zoomWindow"></div>
+
+                                <!-- Miniaturas -->
+                                <div class="thumbnail-container" id="detailThumbnails">
+                                    <!-- Las miniaturas se cargarán dinámicamente -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- El resto del contenido del modal se mantiene igual -->
+                            <div class="product-info">
+                                <h1 id="detailProductName">Nombre del Producto</h1>
+                                <span class="product-category-badge" id="detailProductCategory">Categoría</span>
+                                <div class="product-description" id="detailProductDescription">
+                                    Descripción del producto.
+                                </div>
+                                <div class="product-meta" id="detailProductMeta">
+                                    <!-- Los metadatos se cargarán dinámicamente -->
+                                </div>
+                                <div class="price-section">
+                                    <div class="retail-price">
+                                        <span class="price-label">Precio unitario:</span>
+                                        <span class="price-value" id="detailRetailPrice">$0.00</span>
+                                    </div>
+                                    <div class="wholesale-price-detail" id="detailWholesaleSection"
+                                        style="display: none;">
+                                        <span class="price-label">Precio por Mayorista:</span>
+                                        <span class="price-value" id="detailWholesalePrice">$0.00</span>
+                                        <div class="wholesale-info" id="detailWholesaleInfoText">
+                                            Mínimo 10 unidades
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-outline-secondary btn-sm mt-2"
+                                        onclick="toggleDetailWholesale()" id="detailWholesaleBtn">
+                                        <i class="fas fa-eye me-1"></i> Ver mayorista
+                                    </button>
+                                </div>
+                                <div class="quantity-controls">
+                                    <div class="quantity-btn" onclick="decrementDetailQuantity()">-</div>
+                                    <input type="text" class="quantity-input" id="detailQuantity" value="1" readonly>
+                                    <div class="quantity-btn" onclick="incrementDetailQuantity()">+</div>
+                                </div>
+                                <div class="action-buttons">
+                                    <button class="btn btn-primary btn-add-to-cart" onclick="addToCartFromDetail()">
+                                        <i class="fas fa-cart-plus me-1"></i> Agregar al Carrito
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal fade checkout-modal" id="checkoutModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-shopping-bag me-2"></i>Finalizar Compra</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="checkout-steps">
+                        <div class="checkout-step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Información</div>
+                        </div>
+                        <div class="checkout-step" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Envío</div>
+                        </div>
+                        <div class="checkout-step" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Pago</div>
+                        </div>
+                        <div class="checkout-step" data-step="4">
+                            <div class="step-number">4</div>
+                            <div class="step-title">Confirmación</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 1: Información del cliente -->
+                    <div class="checkout-form active" id="step1">
+                        <h4>Información Personal</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="checkoutFirstName">Nombre</label>
+                                <input type="text" id="checkoutFirstName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="checkoutLastName">Apellido</label>
+                                <input type="text" id="checkoutLastName" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="checkoutEmail">Email</label>
+                                <input type="email" id="checkoutEmail" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="checkoutPhone">Teléfono</label>
+                                <input type="tel" id="checkoutPhone" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="checkoutDni">DNI / Documento</label>
+                            <input type="text" id="checkoutDni" class="form-control" required>
+                        </div>
+
+                        <div class="checkout-actions">
+                            <button class="btn btn-outline-primary" id="cancelCheckout">Cancelar</button>
+                            <button class="btn btn-primary" id="nextToStep2">Continuar</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Información de envío -->
+                    <div class="checkout-form" id="step2">
+                        <h4>Método de Envío</h4>
+                        <div class="shipping-options">
+                            <div class="shipping-option active" data-shipping="domicilio">
+                                <i class="fas fa-truck"></i>
+                                <h5>Envío a Domicilio</h5>
+                                <p>Coordinamos Para Entrega</p>
+                                <small>Entrega en 5-7 días hábiles</small>
+                            </div>
+                            <div class="shipping-option" data-shipping="local">
+                                <i class="fas fa-store"></i>
+                                <h5>Retiro en Local</h5>
+                                <p>GRATIS</p>
+                                <small>Disponible de Lunes a Sábado</small>
+                            </div>
+                        </div>
+
+                        <div id="shippingAddressForm">
+                            <h4 style="margin-top: 30px;">Dirección de Envío</h4>
+                            <div class="form-group">
+                                <label class="form-label" for="checkoutAddress">Dirección</label>
+                                <input type="text" id="checkoutAddress" class="form-control" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="checkoutCity">Ciudad</label>
+                                    <input type="text" id="checkoutCity" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="checkoutState">Provincia</label>
+                                    <input type="text" id="checkoutState" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="checkoutZipCode">Código Postal</label>
+                                    <input type="text" id="checkoutZipCode" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="checkoutCountry">País</label>
+                                    <input type="text" id="checkoutCountry" class="form-control" value="Argentina"
+                                        readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checkout-actions">
+                            <button class="btn btn-outline-primary" id="backToStep1">Atrás</button>
+                            <button class="btn btn-primary" id="nextToStep3">Continuar</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Método de pago -->
+                    <div class="checkout-form" id="step3">
+                        <h4>Método de Pago</h4>
+                        <div class="payment-methods">
+
+                            <div class="payment-method active" data-method="mercado-pago">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Realizar Pago</span>
+                            </div>
+                            <div class="payment-method" data-method="transferencia">
+                                <i class="fas fa-university"></i>
+                                <span>Transferencia</span>
+                            </div>
+                            <div class="payment-method" data-method="tarjeta">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Tarjeta</span>
+                            </div>
+
+                        </div>
+                        <!-- Dentro del #step3, después de los métodos de pago -->
+                        <div class="mt-4">
+                            <!-- Contenedor donde Mercado Pago renderizará el botón -->
+                            <div id="walletBrick_container"></div>
+
+                            <!-- Botón de respaldo para transferencia -->
+                            <div id="transferencia-container" style="display: none;">
+                                <button class="btn btn-primary w-100" onclick="confirmTransferenciaPayment()">
+                                    <i class="fas fa-university me-2"></i>Ver instrucciones de transferencia
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="checkout-summary">
+                            <h4>Resumen de Compra</h4>
+                            <div class="summary-item">
+                                <span>Subtotal:</span>
+                                <span id="summarySubtotal">$0</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Envío:</span>
+                                <span id="summaryShipping">A confirmar</span>
+                            </div>
+                            <div class="summary-total">
+                                <span>Total:</span>
+                                <span id="summaryTotal">$0</span>
+                            </div>
+                        </div>
+
+                        <div class="checkout-actions">
+                            <button class="btn btn-outline-primary" id="backToStep2">Atrás</button>
+                            <button class="btn btn-primary" id="nextToStep4">Continuar</button>
+                        </div>
+                    </div>
+
+
+                    <div class="checkout-form" id="step4">
+                        <div style="text-align: center; padding: 20px 0;">
+                            <i class="fas fa-check-circle"
+                                style="font-size: 4rem; color: var(--secondary); margin-bottom: 20px;"></i>
+                            <h4>¡Pedido Confirmado!</h4>
+                            <p>Tu pedido ha sido procesado exitosamente. Recibirás un email de confirmación en breve.
+                            </p>
+                            <p><strong>Número de pedido: #FM-2023-001</strong></p>
+                        </div>
+
+                        <div class="checkout-summary">
+                            <h4>Resumen del Pedido</h4>
+                            <div id="orderSummary">
+                                <!-- Resumen del pedido se agregará aquí -->
+                            </div>
+                            <div class="summary-total">
+                                <span>Total:</span>
+                                <span id="orderTotal">$0</span>
+                            </div>
+                        </div>
+
+                        <!-- Botones modificados para incluir WhatsApp -->
+                        <div class="checkout-actions whatsapp-actions">
+
+                            <button class="btn btn-whatsapp" id="confirmWhatsApp">
+                                <i class="fab fa-whatsapp"></i> Confirmar pedido por WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Acceso a Cuenta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="tu@empresa.com"
+                                autocomplete="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="loginPassword" placeholder="Contraseña"
+                                autocomplete="current-password" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Recordarme</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                    </form>
+                    <div class="login-options mt-3 pt-3 border-top text-center">
+                        <p class="mb-2">¿No tienes cuenta? <a href="#" data-bs-toggle="modal"
+                                data-bs-target="#registerModal" data-bs-dismiss="modal">Registrarse</a></p>
+                        <a href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Crear Cuenta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de Cuenta</label>
+                            <div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="accountType" id="retailAccount"
+                                        value="retail" checked>
+                                    <label class="form-check-label" for="retailAccount">Particular</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="accountType"
+                                        id="industrialAccount" value="industrial">
+                                    <label class="form-check-label" for="industrialAccount">Empresarial</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="registerFirstName" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="registerFirstName" placeholder="Nombre"
+                                    required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="registerLastName" class="form-label">Apellido</label>
+                                <input type="text" class="form-control" id="registerLastName" placeholder="Apellido"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" placeholder="tu@empresa.com"
+                                autocomplete="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" id="registerPassword" placeholder="Contraseña"
+                                autocomplete="new-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" id="confirmPassword"
+                                placeholder="Confirmar Contraseña" autocomplete="new-password" required>
+                        </div>
+                        <div id="industrialFields" style="display: none;">
+                            <div class="mb-3">
+                                <label for="companyName" class="form-label">Empresa</label>
+                                <input type="text" class="form-control" id="companyName"
+                                    placeholder="Nombre de la empresa">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cuit" class="form-label">CUIT</label>
+                                <input type="text" class="form-control" id="cuit" placeholder="XX-XXXXXXXX-X">
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="terms" required>
+                            <label class="form-check-label" for="terms">Acepto los <a href="#">términos y
+                                    condiciones</a></label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Carrito de Compras</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div id="cart-items">
+                <!-- Los elementos del carrito se cargarán dinámicamente -->
+            </div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Envío:</span>
+                    <span id="cart-shipping">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Descuento:</span>
+                    <span id="cart-discount">$0.00</span>
+                </div>
+                <div class="summary-row summary-total">
+                    <span>Total:</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+                <div class="mt-4">
+
+                    <button class="btn btn-primary w-100 mb-2" onclick="openCheckoutFromCart()">
+                        <i class="fas fa-shopping-bag me-2"></i>Finalizar Compra
+                    </button>
+                    <button class="btn btn-outline-primary w-100" data-bs-dismiss="offcanvas">Seguir Comprando</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts Supabase -->
+    <!-- Scripts Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client-public.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+    <!-- SDK de Mercado Pago -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
+</body>
+
+</html>
